@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Food Rescue — Community</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <div class="page-wrapper">
+    <header class="site-header">
+      <div class="wrap nav-container">
+        <div class="brand">
+          <div class="logo">FR</div>
+          <div class="brand-text">
+            <strong>Food Rescue</strong>
+            <span class="muted-text">Community Edition</span>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#about" onclick="safeScrollTo('about')">About</a>
+          <a href="#discover" onclick="safeScrollTo('discover')">Discover</a>
+          <a href="#donate" onclick="safeScrollTo('donateForm')">Donate</a>
+        </nav>
+
+        <button class="cta-btn small" onclick="safeScrollTo('donateForm')">Donate Now</button>
+      </div>
+    </header>
+
+    <main class="wrap main-content">
+      <section class="hero-section" id="hero">
+        <div class="hero-text">
+          <div class="eyebrow">Local food, local care</div>
+          <h1>Rescue surplus food.<br>Feed your neighbourhood.</h1>
+          <p class="lead">Fast, simple, volunteer-friendly. Post donations, claim pickups, and coordinate locally.</p>
+          <div class="hero-buttons">
+            <button class="cta-btn" onclick="safeScrollTo('donateForm')">Donate items</button>
+            <button class="ghost-btn" onclick="safeScrollTo('requestForm')">Request pickup</button>
+          </div>
+        </div>
+
+        <div class="hero-img-container">
+          <img 
+            src="image.jpeg" 
+            alt="Food Rescue Community" 
+            class="hero-image"
+            onerror="this.style.display='none'"
+          >
+        </div>
+      </section>
+
+      <section id="about" class="banner-card">
+        <h2>Why this Community Edition</h2>
+        <p>Built for small groups and community kitchens. No complex signups—just clear contact details and volunteer coordination.</p>
+      </section>
+
+      <div class="content-grid">
+        
+        <div class="column-left">
+          
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 id="discover">Available Donations</h3>
+                <p class="muted-text">Claim items you can pick up.</p>
+              </div>
+              <div class="filter-controls">
+                <select id="filterType">
+                  <option value="all">All Types</option>
+                  <option value="meal">Meal</option>
+                  <option value="produce">Produce</option>
+                  <option value="packaged">Packaged</option>
+                </select>
+                <input id="searchInput" placeholder="Search..." />
+              </div>
+            </div>
+            <div id="donationsList" class="items-list"></div>
+          </div>
+
+           <div class="card">
+            <h3>Pickup Queue</h3>
+            <div id="requestsList" class="items-list"></div>
+          </div>
+
+          <div class="card form-card-small">
+            <h3>Request Pickup</h3>
+            <form id="requestForm" onsubmit="return false">
+              <div class="row-2">
+                <input id="reqName" placeholder="Organization Name" />
+                <input id="reqLocation" placeholder="Location (e.g. Powai)" />
+              </div>
+              <input id="reqNeed" placeholder="What is needed? (e.g. 30 meals)" />
+              <button class="cta-btn full-width" id="requestBtn">Send Request</button>
+            </form>
+          </div>
+
+        </div>
+
+        <aside class="column-right">
+          
+          <div class="card form-card sticky-card">
+            <h3>Quick Donate</h3>
+            <p class="muted-text">Volunteers will contact you via WhatsApp.</p>
+
+            <form id="donateForm" onsubmit="return false">
+              <label>Your Name</label>
+              <input id="donorName" placeholder="e.g., Sunita" />
+
+              <label>Contact (WhatsApp)</label>
+              <input id="donorContact" placeholder="e.g., +91 98xxxx" />
+
+              <label>Item Name</label>
+              <input id="itemName" placeholder="e.g., 20 cooked meals" required />
+
+              <div class="row-2">
+                <div>
+                  <label>Type</label>
+                  <select id="itemType">
+                    <option value="meal">Meal</option>
+                    <option value="produce">Produce</option>
+                    <option value="packaged">Packaged</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Quantity</label>
+                  <input id="quantity" type="number" placeholder="20" />
+                </div>
+              </div>
+
+              <label>Pickup Location</label>
+              <input id="location" placeholder="e.g., Powai" />
+
+              <label>Notes</label>
+              <textarea id="notes" rows="3" placeholder="e.g., vegetarian, fresh..."></textarea>
+
+              <div class="action-row">
+                <button class="cta-btn full-width" id="donateBtn">Add Donation</button>
+              </div>
+              <div class="secondary-actions">
+                <button type="button" class="text-btn" id="seedBtn">Load Sample</button>
+                <span class="sep">|</span>
+                <button type="button" class="text-btn" id="exportCSV">Export CSV</button>
+              </div>
+            </form>
+          </div>
+
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        © 2025 Food Rescue — Community Edition
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
